@@ -23,7 +23,7 @@ namespace WindowsFormsApp1
             int startH, startM;
             int endH, endM;
             int widthT, heightT;
-            int offset = 5;
+            Point offset = new Point(5,1);
             
             d = (int)day.Value;
             
@@ -37,21 +37,30 @@ namespace WindowsFormsApp1
             heightT = table.Height / table.RowCount;
             
             Point position = new Point();
-            position.X = d * widthT + offset + table.Location.X;
-            position.Y = (int)(heightT * (startH + (float)startM / 60)) + table.Location.Y;
+            position.X = d * widthT + offset.X + table.Location.X;
+            position.Y = (int)(heightT * (startH + (float)startM / 60)) + offset.Y + table.Location.Y;
 
             int positionEnd_Y;
-            positionEnd_Y = (int)(heightT * (endH + (float)endM / 60)) + table.Location.Y;
+            positionEnd_Y = (int)(heightT * (endH + (float)endM / 60)) + offset.Y + table.Location.Y;
 
             Panel h = new Panel();
-            h.BackColor = Color.FromArgb(100, 255, 0, 0);
+            h.BackColor = Color.FromArgb(255, 255, 0, 0);
             h.Location = position;
-            h.Width = widthT - 2 * offset;
+            h.Width = widthT - 2 * offset.X;
             h.Height = positionEnd_Y - position.Y;
             h.Location = position;
             h.Name = "thanh";
-            
 
+            Label l = new Label();
+            l.Height = h.Height;
+            l.Width = h.Width;
+            l.Text = startH.ToString(String.Format("00")) + ":" + 
+                     startM.ToString(String.Format("00")) + "-" + 
+                     endH.ToString(String.Format("00")) + ":" + 
+                     endM.ToString(String.Format("00")) + "\n" +
+                     Description.Text;
+
+            h.Controls.Add(l);
             
             this.Controls.Add(h);
 

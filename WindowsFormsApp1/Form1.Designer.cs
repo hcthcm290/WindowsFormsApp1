@@ -36,6 +36,7 @@
             this.startMinute = new System.Windows.Forms.NumericUpDown();
             this.endHour = new System.Windows.Forms.NumericUpDown();
             this.endMinute = new System.Windows.Forms.NumericUpDown();
+            this.Description = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.day)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startHour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startMinute)).BeginInit();
@@ -137,11 +138,20 @@
             this.endMinute.Size = new System.Drawing.Size(73, 20);
             this.endMinute.TabIndex = 7;
             // 
+            // Description
+            // 
+            this.Description.Location = new System.Drawing.Point(546, 179);
+            this.Description.Name = "Description";
+            this.Description.Size = new System.Drawing.Size(208, 66);
+            this.Description.TabIndex = 8;
+            this.Description.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 421);
+            this.Controls.Add(this.Description);
             this.Controls.Add(this.endMinute);
             this.Controls.Add(this.endHour);
             this.Controls.Add(this.startMinute);
@@ -178,6 +188,8 @@
             h.Name = "U";
             this.Controls.Add(h);
         }
+
+        private System.Windows.Forms.RichTextBox Description;
     }
 }
 
